@@ -1,7 +1,4 @@
 'use strict';
-
-const Role = require("../models/role");
-
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Users', {
@@ -12,13 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       idRole: {
-        type: Sequelize.INTEGER,
-        // references: {
-        //   model: 'Role',
-        //   key: 'id'
-        // },
-        // onDelete: 'CASCADE',
-        // onUpdate: 'CASCADE',
+        type: Sequelize.INTEGER
       },
       email: {
         type: Sequelize.STRING
@@ -34,6 +25,9 @@ module.exports = {
       },
       ranking: {
         type: Sequelize.INTEGER
+      },
+      avatar: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

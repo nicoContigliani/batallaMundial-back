@@ -15,6 +15,7 @@ const register = async (elemento) => {
     const passwords = elemento.passwords;
     const status = elemento.status;
     const ranking = elemento.ranking;
+    const avatar = elemento.avatar;
     // const id_rol = elemento.id_rol
     const usersss = []
     userss.forEach(element => {
@@ -42,9 +43,9 @@ const register = async (elemento) => {
     //password = hashedPassword
 
     const password = await bcrypt.hash(passwords, 10)
-    const newUser = { email, nickname, password, idRole, status, ranking }
+    const newUser = { email, nickname, password, idRole, status, ranking,avatar }
     const saveRegister = await usersDao.RegisterPost(newUser)
-    const data = {email, nickname, password, idRole, status, ranking }
+    const data = {email, nickname, password, idRole, status, ranking,avatar }
     const u = await usersDao.getUserR(email)
     const n = u.dataValues
 
@@ -100,6 +101,7 @@ const login = async (elemento) => {
     const password = elemento.password;
     const status = elemento.status;
     const ranking = elemento.ranking;
+    const avatar = elemento.avatar;
 
 
     for (let index = 0; index < x.length; index++) {

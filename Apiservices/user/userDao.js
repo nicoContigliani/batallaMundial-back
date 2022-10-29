@@ -58,6 +58,7 @@ const getUserId = async (data) => {
           { id: data.data },
           { status: data.data },
           { nickname: data.data },
+          { email: data.data },
           // { ranking: data.data }
         ]
       }

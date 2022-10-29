@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const config = process.env;
 
 const verifyToken = (req, res, next) => {
-    const token = req.body.token || req.query.token || req.header('auth-token');
+    const token = req.body.token || req.query.token || req.header('auth-token')|| req.header('Authorization');
 
     if (!token) {
         return res.status(403).send("Error 403 -  A token is required for authentication ");

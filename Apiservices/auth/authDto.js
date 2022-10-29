@@ -44,7 +44,8 @@ const register = async (resource) => {
     email: resource.email,
     rol_id: resource?.rol_id,
     status: resource?.status,
-    ranking: resource?.ranking
+    ranking: resource?.ranking,
+    avatar: resource?.avatar
 
   }, process.env.TOKEN_SECRET)
 
@@ -89,9 +90,11 @@ const login = async (resource) => {
     rol_id: rest[0]?.rol_id || 2,
     status: rest[0]?.status || "golden",
     ranking: rest[0]?.status || 1,
+    avatar: rest[0]?.avatar || 'https://drive.google.com/thumbnail?id=17fBzEwLjVC4wbHBi1O64PA-D-i8G_Z4b',
   }, process.env.TOKEN_SECRET)
   console.log(token)
-  const element = { token, rest, 
+  const element = {
+    token, rest,
     //uerror: esError 
   }
 
