@@ -54,14 +54,16 @@ const getUserId = async (data) => {
       // }
 
       where: {
+        // status: (data.data),
         [Op.or]: [
-          { id: data.data },
+          //   { id: data.data },
           { status: data.data },
           { nickname: data.data },
           { email: data.data },
-          // { ranking: data.data }
+          //   // { ranking: data.data }
         ]
       }
+
 
 
     })
@@ -80,7 +82,7 @@ const saveBudget = async (resource) => {
       'INSERT INTO public.budgets (concept, amount, "date", id_user, "type") VALUES ($1,$2,$3,$4,$5)',
       [concept, amount, date, id_user, type]
     );
-    budgets = response;
+    user = response;
     return budgets;
   } catch (error) {
     console.log(error);
@@ -117,8 +119,14 @@ const updateUser = async (everything) => {
         role_id: everything.role_id,
         email: everything.email,
         password: everything.password,
-        fullname: everything.fullname,
-        phone: everything.phone,
+        nickname: everything.nickname,
+        status: everything.status,
+
+
+
+
+
+
       },
       // { returning: true, where: { id: data} }
       {
@@ -134,7 +142,7 @@ const updateUser = async (everything) => {
               email: everything.data,
             },
             {
-              phone: everything.data,
+              status: everything.data,
             },
           ],
         },
